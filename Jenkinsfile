@@ -4,7 +4,7 @@ pipeline{
     stage("build"){
       steps{
         echo 'biuilding the application'
-	docker build -t my-flask-image:latest .
+	sh 'docker build -t test-jenkins:latest .'
         echo 'there was some modification'
       }
     }
@@ -16,7 +16,7 @@ pipeline{
     stage("deploy"){
       steps{
         echo 'deploying the application'
-	docker run
+	sh 'docker run test-jenkins'
       }
     }
   }
