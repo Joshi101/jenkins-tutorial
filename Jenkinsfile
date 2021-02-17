@@ -1,13 +1,11 @@
 pipeline{
-  agent {docker {
-		 image 'dind-jenkins-agent:v2'
-		}
+  agent {
+	  dockerfile true
 	}
   stages {
     stage("build"){
       steps{
         echo 'biuilding the application'
-	sh 'docker build -t test-jenkins:latest .'
         echo 'there was some modification'
       }
     }
@@ -19,7 +17,6 @@ pipeline{
     stage("deploy"){
       steps{
         echo 'deploying the application'
-	sh 'docker run test-jenkins'
       }
     }
   }
