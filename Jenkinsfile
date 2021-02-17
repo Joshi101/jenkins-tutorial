@@ -1,6 +1,6 @@
 pipeline{
   agent {docker {
-		 image dind-jenkins-agent:v2
+		 image 'dind-jenkins-agent:v2'
 		}
 	}
   stages {
