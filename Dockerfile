@@ -1,8 +1,7 @@
-FROM ubuntu:latest
-RUN apt-get update -y
-RUN apt-get install -y python-pip python-dev build-essential
-ADD . /app
+FROM python:alpine3.7 
+COPY . /app
 WORKDIR /app
-RUN pip install -r requirements.txt
-ENTRYPOINT ["python"]
-CMD ["app.py"]
+RUN pip install -r requirements.txt 
+EXPOSE 5001 
+ENTRYPOINT [ "python" ] 
+CMD [ "app.py" ] 
