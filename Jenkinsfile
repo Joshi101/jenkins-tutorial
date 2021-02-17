@@ -1,5 +1,8 @@
 pipeline{
-  agent {dockerfile true}
+  agent {docker {
+		 image dind-jenkins-agent:v2
+		}
+	}
   stages {
     stage("build"){
       steps{
