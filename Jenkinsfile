@@ -14,7 +14,7 @@ pipeline{
     }
     stage("deploy"){
       steps{
-        sh 'docker run flask-demo'
+        sh 'docker run -d flask-demo'
       }
     }
   }
