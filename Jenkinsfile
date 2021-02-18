@@ -1,12 +1,10 @@
 pipeline{
-  agent {
-	  dockerfile true
-	}
+  agent none
   stages {
     stage("build"){
       steps{
         echo 'biuilding the application'
-        echo 'there was some modification'
+        sh 'docker build -t flask-demo .'
       }
     }
     stage("test"){
@@ -16,7 +14,7 @@ pipeline{
     }
     stage("deploy"){
       steps{
-        echo 'deploying the application'
+        sh 'docker run flask-demo'
       }
     }
   }
